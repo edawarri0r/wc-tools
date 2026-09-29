@@ -27,7 +27,7 @@ This challenge is to build your own version of the Unix command line tool wc!
    Example:
    System will be returning number of bytes using `python wc-tools.py -c test.txt`
    
-   System will be returning `bytes`,`lines`,`words` respectively if no options added using `python wc-tools.py test.txt`
+   System will be returning `lines`,`words`,`bytes` respectively if no options added using `python wc-tools.py test.txt`
 
 
   [options]
