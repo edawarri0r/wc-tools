@@ -37,8 +37,15 @@ if args.filename:
         print("File not found")
         exit(1)
 else : 
+    # Check if user is typing with or without the filename
+    if sys.stdin.isatty(): 
+        name = input("Input txt file [Filename.txt]: ")
+        #if user inputting file name then run the file
+        with open(name, "r", encoding="utf-8") as f:
+            data = f.read()
+    else:        
     #sys.stdin.read is to read data from input
-    data = sys.stdin.read()
+        data = sys.stdin.read()
 
 
 #5. create class with method to process the file
