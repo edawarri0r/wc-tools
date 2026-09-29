@@ -31,7 +31,8 @@ args = parser.parse_args()
 if args.filename:
     try:
         #have to use encoding utf-8 if you dont use 'b' on open
-        with open(args.filename,"r",encoding="utf-8") as f:
+        #newline="" is used to make sure every line ending in a file (\r\n) is as is
+        with open(args.filename,"r",encoding="utf-8", newline="") as f:
             data = f.read()
     except FileNotFoundError:
         print("File not found")
@@ -41,7 +42,7 @@ else :
     if sys.stdin.isatty(): 
         name = input("Input txt file [Filename.txt]: ")
         #if user inputting file name then run the file
-        with open(name, "r", encoding="utf-8") as f:
+        with open(name, "r", encoding="utf-8", newline="") as f:
             data = f.read()
     else:        
     #sys.stdin.read is to read data from input
@@ -78,6 +79,6 @@ class Count:
         elif args.characters:
             print(self.count_characters())
         else:
-            print(f"{self.count_bytes()}  {self.count_lines()} {self.count_words()}")
+            print(f"{self.count_lines()}  {self.count_words()} {self.count_bytes()}")
 
 Count(data).run()
